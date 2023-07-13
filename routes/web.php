@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\stroreProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/nav', function () {
+    return view('form');
+});
+Route::get('/AddProduct',[stroreProductController::class,'create']);
+
+Route::post('/pos', [stroreProductController::class, 'storeProduct']);
+
+
+Route::get('/test', function () {
+    return view('form');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
