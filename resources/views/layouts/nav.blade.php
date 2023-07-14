@@ -26,9 +26,20 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Pricing</a>
           </li>
-          <a class="nav-link " href="login" style="color:black">Log in</a>
-                  <a class="nav-link " href="register" style="color:black">Sign out</a>
-         
+          <a class="nav-link " href="login" style="">Log in</a>
+        
+          <a class="nav-link " href="register" style="">Sign in</a>
+          @if (Route::has('login'))
+          @auth
+        
+          <a href="{{ route('logout') }}" class="navlink pt-2 pt-1" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="text-decoration: none;color:gray">
+            Log out </a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
+        
+            @endauth
+          @endif
         </ul>
       </div>
       <button class="btn btn btn-secondary">Contact Us</button>

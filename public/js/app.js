@@ -5103,6 +5103,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
@@ -9676,7 +9677,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n<style>\n.carousel-item{\n    height:80vh;\n}\n.carousel-item img { \n  height: 100%;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.carousel-item{\n    height:80vh;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -27601,32 +27602,43 @@ var staticRenderFns = [
       "div",
       {
         staticClass: "carousel slide",
-        attrs: { id: "carouselExampleControls", "data-bs-ride": "carousel" },
+        attrs: {
+          id: "carouselExampleControls container-fluid",
+          "data-bs-ride": "carousel",
+        },
       },
       [
         _c("div", { staticClass: "carousel-inner" }, [
           _c("div", { staticClass: "carousel-item active" }, [
             _c("img", {
-              staticClass: "d-block w-100",
+              staticClass: "d-block w-100 img-fluid",
               attrs: {
                 src: "https://media.istockphoto.com/id/1440668597/photo/distribution-warehouse-with-cardboard-boxes-on-the-racks-and-on-the-floor.jpg?s=1024x1024&w=is&k=20&c=L5mYFNb6Mr9iQ6biWxzjta0CzZJyLtbAuU0pWjYKcLI=",
                 alt: "...",
               },
             }),
             _vm._v(" "),
-            _c("div", { staticClass: "carousel-caption d-none d-md-block" }, [
-              _c("h1", { staticClass: "text-light" }, [
-                _vm._v("Welcome to ManagProduct, la gestion facial"),
-              ]),
-              _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "Some representative placeholder content for the first slide."
-                ),
-              ]),
-            ]),
-            _vm._v(" "),
-            _c("button", [_vm._v("Contact us now")]),
+            _c(
+              "div",
+              {
+                staticClass: "carousel-caption d-none d-md-block bg-dark mpb-3",
+              },
+              [
+                _c("h1", [
+                  _vm._v("Welcome to ManagProduct, la gestion facial"),
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "Some representative placeholder content for the first slide."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("button", { staticClass: "bg-primary" }, [
+                  _vm._v("Contact us"),
+                ]),
+              ]
+            ),
           ]),
         ]),
       ]

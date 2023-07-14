@@ -1,7 +1,12 @@
 <?php
 
+use App\Http\Controllers\deleteController;
+use App\Http\Controllers\getProductController;
+use App\Http\Controllers\productFiterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\stroreProductController;
+use App\Models\Product;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,20 +22,21 @@ use App\Http\Controllers\stroreProductController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/nav', function () {
-    return view('form');
-});
+
 Route::get('/AddProduct',[stroreProductController::class,'create']);
 
 Route::post('/pos', [stroreProductController::class, 'storeProduct']);
+Route::get('/products/{product}',[getProductController::class,'producte']);
+Route::get('/updateProduct/{id}',[getProductController::class,'update']);
 
 
-Route::get('/test', function () {
-    return view('form');
-});
+Route::get('/deleteProduct/{id}', [deleteController::class,'delete']);
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+
+    $product= new Product();
+
+    return view('dashboard',compact('product'));
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
