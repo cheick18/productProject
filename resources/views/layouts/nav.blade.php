@@ -9,9 +9,10 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+  <div class="container-fluid px-0">
   <nav class="navbar navbar-expand-lg navbar-light  container">
     <div class="container">
-      <a class="navbar-brand" href="/">Navbar</a>
+      <a class="navbar-brand" href="/">ManagProduct</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -24,7 +25,7 @@
             <a class="nav-link" href="#">Features</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
+            <a class="nav-link" href="/AddProduct">add product</a>
           </li>
           <a class="nav-link " href="login" style="">Log in</a>
         
@@ -45,9 +46,11 @@
       <button class="btn btn btn-secondary">Contact Us</button>
     </div>
   </nav>
-      <div class="container-fluid">
+
         @yield('name')
-      </div>
+    
+
+      </div>   
       
       
       <script src="{{ asset('js/app.js') }}"></script>

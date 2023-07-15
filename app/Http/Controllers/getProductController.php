@@ -17,8 +17,9 @@ class getProductController extends Controller
     }
     public function update(Request $request, $id){
         $product = Product::find($id);
-      
+        
         if (!$product) {
+           
             return redirect()->route('/')->with('error', 'Product not found.');
         }
         $validated = $request->validate([

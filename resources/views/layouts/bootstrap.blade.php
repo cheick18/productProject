@@ -8,10 +8,14 @@
     <title>Document</title>
 </head>
 <body style="background-color: white">
+    <div class="container-fluid">
+        @yield('content')
+
+    </div>
    
     
  
-    @yield('content')
+  
     
     <script src="{{ asset('js/app.js') }}" defer></script>
 </body>

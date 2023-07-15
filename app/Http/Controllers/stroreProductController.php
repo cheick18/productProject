@@ -28,7 +28,7 @@ class stroreProductController extends Controller
             'picture' => 'required|image',
             'user_id' => 'required'
         ]);
-
+         $user= User::find($validated ['user_id']);
         $product = new Product();
         $product->name= $validated ['name'];
         $product->description= $validated ['description'];
@@ -36,7 +36,9 @@ class stroreProductController extends Controller
         $product->picture= $validated ['picture'];
         $product->user_id= $validated ['user_id'];
         $product->type= $validated ['type'];
-        $product->save();
+    
+        $user->product()->save($product);
+            $product->save();
        
         return view('welcome');
 

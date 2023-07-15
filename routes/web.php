@@ -22,11 +22,21 @@ use App\Models\User;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::middleware('auth')->group(function () {
+   
+    Route::get('/AddProduct',[stroreProductController::class,'create']);
+    Route::get('/deleteProduct/{id}', [deleteController::class,'delete']);
+    Route::get('/products/{product}',[getProductController::class,'producte']);
+    Route::post('/pos', [stroreProductController::class, 'storeProduct']);
+   
+});
 
-Route::get('/AddProduct',[stroreProductController::class,'create']);
 
-Route::post('/pos', [stroreProductController::class, 'storeProduct']);
-Route::get('/products/{product}',[getProductController::class,'producte']);
+
+
+
+//Route::post('/pos', [stroreProductController::class, 'storeProduct']);
+//Route::get('/products/{product}',[getProductController::class,'producte']);
 Route::get('/updateProduct/{id}',[getProductController::class,'update']);
 
 
@@ -36,7 +46,7 @@ Route::get('/dashboard', function () {
 
     $product= new Product();
 
-    return view('dashboard',compact('product'));
+    return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';

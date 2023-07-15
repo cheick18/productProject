@@ -1,5 +1,6 @@
 @extends('layouts.nav')
-@section('name')
+@section('name')$
+<div class="container-fluid bg-dark" >
 <div class="container">
 <div class="row pt-4">
     <div class="col-8 ">
@@ -8,7 +9,7 @@
          @csrf
          @method('PUT')
          <div class="mb-3">
-            <h1>{{ $product->id }}</h1>
+            
             <label for="name" class="form-label">Product name </label>
             <input id="name" class="form-control" type="text" name="name" value="{{ $product->name }}" required autofocus>
         </div>
@@ -55,5 +56,14 @@
     @endif
         </form>
     </div>
+    <footer class="bg-text-center text-lg-start text-light border mt-5">
+ 
+        <div class="text-center p-3" >
+          © 2020 Copyright:
+          <a class="text-dark" href="https://github.com/cheick18/productProject"> By wague cheickne</a>
+        </div>
+     
+    </footer>
+</div>
     
 @endsection
